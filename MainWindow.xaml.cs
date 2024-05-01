@@ -75,36 +75,36 @@ namespace wpf_hw_four
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            tasks.OrderBy(t => t.TaskText);
+            tasks = tasks.OrderBy(t => t.TaskText).ToList();
             TasksToCheckboxes();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            tasks.OrderByDescending(t => t.TaskText);
+            tasks = tasks.OrderByDescending(t => t.TaskText).ToList();
             TasksToCheckboxes();
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            tasks.OrderBy(t => t.TaskDeadline);
+            tasks = tasks.OrderBy(t => t.TaskDeadline).ToList();
             TasksToCheckboxes();
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            tasks.OrderByDescending(t => t.TaskDeadline);
+            tasks = tasks.OrderByDescending(t => t.TaskDeadline).ToList();
             TasksToCheckboxes();
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < tasks.Count; i++)
+            for (int i = 0, j = 0; i < checkBoxes.Count; i++, j++)
             {
                 if (checkBoxes[i].IsChecked == true)
                 {
-                    tasks.RemoveAt(i);
-                    i--;
+                    tasks.RemoveAt(j);
+                    j--;
                 }
             }
             TasksToCheckboxes();
