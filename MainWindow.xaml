@@ -31,7 +31,7 @@
                         <RowDefinition Height="4*"/>
                         <RowDefinition Height="3*"/>
                     </Grid.RowDefinitions>
-                    <TextBox Grid.Row="0" Margin="10, 20, 10, 4"/>
+                    <TextBox FontSize="15" Grid.Row="0" Margin="10, 20, 10, 4" Name="taskTextBox"/>
                     <TextBlock Grid.Row="1" Text="Task text" Margin="10,0" FontSize="15"/>
                 </Grid>
             <Grid Grid.Column="1">
@@ -39,36 +39,35 @@
                     <RowDefinition Height="4*"/>
                     <RowDefinition Height="3*"/>
                 </Grid.RowDefinitions>
-                <DatePicker Grid.Column="1" Margin="10, 20, 10, 4"/>
+                <DatePicker Grid.Column="1" Margin="10, 20, 10, 4" Name="deadlineDatePicker"/>
                 <TextBlock Grid.Row="1" Text="Deadline" Margin="10,0" FontSize="15"/>
             </Grid>
-            <Button Grid.Column="2" Margin="10, 20, 10, 45" Content="Add" FontSize="15"/>
-            <ComboBox Grid.Column="3" Margin="10, 20, 20, 45" FontSize="20"/>
+            <Button Grid.Column="2" Margin="10, 20, 10, 45" Content="Add" FontSize="15" Click="Button_Click"/>
+            <ComboBox Grid.Column="3" Margin="10, 20, 20, 45" FontSize="16" Name="stateComboBox" SelectedIndex="0">
+                <ComboBoxItem Content="All"/>
+                <ComboBoxItem Content="Active"/>
+                <ComboBoxItem Content="Done"/>
+            </ComboBox>
         </Grid>
             <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical">
-                <Button FontSize="20" Content="A-Z" Width="150" Height="38" Margin="10, 10, 30, 5"/>
-                <Button FontSize="20" Content="Z-A" Width="150" Height="38" Margin="10, 0, 30, 5"/>
-                <Button FontSize="20" Content="older to newer" Width="150" Height="38" Margin="10, 0, 30, 5"/>
-                <Button FontSize="20" Content="newer to older" Width="150" Height="38" Margin="10, 0, 30, 5"/>
-                <Button FontSize="20" Content="Delete" Width="150" Height="38" Margin="10, 0, 30, 5"/>
-                <Button FontSize="20" Content="Delete All" Width="150" Height="38" Margin="10, 0, 30, 5"/>
+                <Button FontSize="20" Content="A-Z" Width="150" Height="38" Margin="10, 10, 30, 5" Click="Button_Click_1"/>
+                <Button FontSize="20" Content="Z-A" Width="150" Height="38" Margin="10, 0, 30, 5" Click="Button_Click_2"/>
+                <Button FontSize="20" Content="older to newer" Width="150" Height="38" Margin="10, 0, 30, 5" Click="Button_Click_3"/>
+                <Button FontSize="20" Content="newer to older" Width="150" Height="38" Margin="10, 0, 30, 5" Click="Button_Click_4"/>
+                <Button FontSize="20" Content="Delete" Width="150" Height="38" Margin="10, 0, 30, 5" Click="Button_Click_5"/>
+                <Button FontSize="20" Content="Delete All" Width="150" Height="38" Margin="10, 0, 30, 5" Click="Button_Click_6"/>
             </StackPanel>
-        <ListBox Grid.Row="1" Grid.Column="1" Margin="10" Name="tasksListBox">
-            <ListBoxItem>
-                
-            </ListBoxItem>
-        </ListBox>
+        <ListBox Grid.Row="1" Grid.Column="1" Margin="10" Name="tasksListBox"/>
         <Grid Grid.Column="1" Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="6*"/>
-                <ColumnDefinition Width="0.7*"/>
-                <ColumnDefinition Width="1.2*"/>
-                <ColumnDefinition Width="1.1*"/>
-                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="1" VerticalAlignment="Top" FontSize="17" Text="All:" Name="allButton"/>
-            <TextBlock Grid.Column="2" VerticalAlignment="Top" FontSize="17" Text="Active:" Name="activeButton"/>
-            <TextBlock Grid.Column="3" VerticalAlignment="Top" FontSize="17" Text="Done:" Name="doneButton"/>
+            <StackPanel Orientation="Horizontal" Grid.Column="1">
+                <TextBlock Margin="10, 0, 10, 0" VerticalAlignment="Top" FontSize="17" Text="All: 0" Name="allText"/>
+                <TextBlock Margin="10, 0, 10, 0" VerticalAlignment="Top" FontSize="17" Text="Active: 0" Name="activeText"/>
+                <TextBlock Margin="10, 0, 10, 0" VerticalAlignment="Top" FontSize="17" Text="Done: 0" Name="doneText"/>
+            </StackPanel>
         </Grid>
     </Grid>
     </Window>
